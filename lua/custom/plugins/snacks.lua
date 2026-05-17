@@ -4,9 +4,6 @@ vim.pack.add {
 
 require('snacks').setup {
   terminal = { enabled = true },
-
+  image = { enabled = true },
+  bufdelete = { enabled = true },
 }
-
--- keybinding
-vim.keymap.set('n', '<C-/>', function() Snacks.terminal() end, {desc = 'Toggle Terminal'})
-vim.keymap.set('t', '<C-/>', function() Snacks.terminal() end, {desc = 'Toggle Terminal'})

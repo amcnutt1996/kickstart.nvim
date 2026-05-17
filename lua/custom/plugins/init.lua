@@ -11,3 +11,5 @@ for file_name, type in vim.fs.dir(plugins_dir) do
     require('custom.plugins.' .. module)
   end
 end
+--disable the J key so i stop accidentally hitting it :D
+vim.keymap.set('n', 'J', '<nop>', { desc = 'Disabled' })

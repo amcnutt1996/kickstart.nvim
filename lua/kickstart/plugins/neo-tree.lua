@@ -17,6 +17,19 @@ vim.pack.add(plugins)
 vim.keymap.set('n', '\\', '<Cmd>Neotree reveal<CR>', { desc = 'NeoTree reveal', silent = true })
 
 require('neo-tree').setup {
+  sources = {'filesystem', 'git_status', 'buffers'},
+  source_selector = {
+    winbar = true,
+    sources = {
+      {source = 'filesystem'},
+      {source = 'git_status'},
+      {source = 'buffers'},
+    },
+    statusline = false,
+    truncation_character = '...',
+    content_layout = 'center',
+    tabs_layout = 'equal',
+  },
   enable_git_status = true,
   filesystem = {
     filtered_items = {
