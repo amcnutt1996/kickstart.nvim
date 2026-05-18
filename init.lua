@@ -971,6 +971,7 @@ do
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   require 'plugins'
+  require 'plugins.themes'
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`

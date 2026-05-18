@@ -1,29 +1,31 @@
 vim.pack.add({ "https://github.com/coder/claudecode.nvim" })
 
 require("claudecode").setup({
+	
+	env = {},
 	terminal = {
-		-- env = {},
+	
 		terminal_cmd = nil,
 		snacks_win_opts = {
-			position='float',
-			width=0.9,
-			height=0.9,
-			mode="t",
+			position = "right",
+			width = 0.3,
+			height = 0.9,
+			mode = "t",
 		},
-    cwd_provider = function(ctx)
-      -- Prefer repo root; fallback to file's directory
-      local cwd = require("claudecode.cwd").git_root(ctx.file_dir or ctx.cwd) or ctx.file_dir or ctx.cwd
-      return cwd
-    end,
+		cwd_provider = function(ctx)
+			-- Prefer repo root; fallback to file's directory
+			local cwd = require("claudecode.cwd").git_root(ctx.file_dir or ctx.cwd) or ctx.file_dir or ctx.cwd
+			return cwd
+		end,
 		auto_close = true,
 		show_native_term_exit_tip = true,
-		split_side = 'right',
+		split_side = "right",
 		split_width_percentage = 0.3,
 		provider = "snacks",
 		-- snacks = {
 		-- 	win = {
 		-- 		style = "float",
-			-- },
+		-- 	},
 		-- },
 	},
 })

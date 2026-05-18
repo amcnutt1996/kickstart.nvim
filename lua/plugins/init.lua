@@ -5,16 +5,12 @@
 
 -- Iterate over all Lua files in the plugins directory and load them
 local plugins_dir = vim.fs.joinpath(vim.fn.stdpath 'config', 'lua', 'plugins')
-for file_name, type in vim.fs.dir(plugins_dir) do
-  if type == 'file' and file_name:match '%.lua$' and file_name ~= 'init.lua' then
+for file_name, file_type in vim.fs.dir(plugins_dir) do
+  if file_type == 'file' and file_name:match '%.lua$' and file_name ~= 'init.lua' then
     local module = file_name:gsub('%.lua$', '')
     require('plugins.' .. module)
   end
 end
-
-
--- set neovim color scheme
-vim.cmd.colorscheme 'ayu'
 
 --disable the J key so i stop accidentally hitting it :D
 vim.keymap.set('n', 'J', '<nop>', { desc = 'Disabled' })
